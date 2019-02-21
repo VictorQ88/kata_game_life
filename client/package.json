@@ -18,7 +18,7 @@
     "grunt-contrib-connect": ">=1.0.1",
     "grunt-contrib-jshint": ">=1.0.0",
     "grunt-karma": ">=0.12.2",
-    "karma": "^1.7.0",
+    "karma": "^1.7.1",
     "karma-coverage": ">=0.5.5",
     "karma-jasmine": "~0.1.6",
     "karma-phantomjs-launcher": ">=1.0.0",

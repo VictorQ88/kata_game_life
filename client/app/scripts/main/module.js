@@ -2,7 +2,7 @@
 
 angular.module('App', [
   'ngRoute',
-  'Group'
+  'Game'
 ])
 .config(function ($routeProvider) {
   $routeProvider
