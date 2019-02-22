@@ -1,9 +1,25 @@
-<button ng-click="calculate_next_generation()">
-    Next generation
- </button>
 
-<table class="table" border="1">
-    <tr ng-repeat="row in grid">
-      <td >{{row}}</td>
-    </tr>
-</table>
+<div  ng-controller="game">
+   
+    <label>Dimension: </label>
+    <input type="number" ng-model="dimension"/>
+    <button ng-click="create_new_game()" class="btn-primary" type="button">
+      Start Game  
+    </button>
+    <br/>
+    <h1>Play</h1>
+    <br/>
+
+    <button ng-click="calculate_next_generation()" type="button">
+      Next generation
+  </button>
+  {{grid}}
+  <table class="table" >
+      <tr ng-repeat="row in grid">
+        <td ng-repeat="col in row[$index]">{{col}}</td>
+      </tr>
+  </table>
+ 
+
+</div>
+
