@@ -49,7 +49,7 @@ describe('Controller: Game', function () {
   });
 
   describe('When game play',function() {    
-    iit('Should test start new game', function() {
+    it('Should test start new game', function() {
       scope.object.dimension = 10;
       scope.start_new_game();
       expect(scope.grid.length).toEqual(scope.object.dimension);
@@ -60,6 +60,13 @@ describe('Controller: Game', function () {
       expect(scope.grid).toEqual(next_generation);
       scope.calculate_next_generation();    
       expect(scope.grid).toEqual(next_next_generation);
+    });
+
+    iit('Should test auto play', function() {     
+      _(scope.grid).each(function (item) {
+        console.log('item :', item);
+      }) ;
+     expect(scope.calculate_next_generation).toHaveBeenCalled();
     });
   });
 

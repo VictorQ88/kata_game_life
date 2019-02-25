@@ -1,16 +1,18 @@
 'use strict';
 
 angular.module('Game')
-.controller('game', function ($scope) {
+.controller('game', function ($scope,$interval,$timeout) {
 
   $scope.grid = []; 
   $scope.playing = false;
   $scope.object = { dimension: 0 };
+  var timer;
 
   $scope.reset_game = function () {
     $scope.object.dimension = 0;
     $scope.grid = [];
     $scope.playing = false;
+    $interval.cancel(timer);
   };
 
   $scope.start_new_game = function (){
@@ -27,6 +29,7 @@ angular.module('Game')
   };
 
   $scope.calculate_next_generation = function () {
+    console.log('calculate_next_generation :', null);
     $scope.object.dimension = $scope.grid.length;
     var new_generation  = new Array($scope.object.dimension);
     var living_neighbors;
@@ -79,6 +82,9 @@ angular.module('Game')
     return 0;
   };
 
+  $scope.auto_play = function () {
+    timer = $interval(function (){$scope.calculate_next_generation();}, 1000);   
+  };
 
 }).config(function ($routeProvider) {
   $routeProvider
