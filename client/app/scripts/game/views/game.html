@@ -1,25 +1,36 @@
 
-<div  ng-controller="game">
-   
-    <label>Dimension: </label>
-    <input type="number" ng-model="dimension"/>
-    <button ng-click="create_new_game()" class="btn-primary" type="button">
+<div class="d-flex justify-content-center" id="game_content">
+
+  <div class="form-inline" ng-if="!playing">
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1">Dimension</span>
+      </div>
+      <input type="number" class="form-control" ng-model="object.dimension">
+    </div>
+    <button ng-click="start_new_game()" class="btn btn-primary mb-2" type="button">
       Start Game  
+    </button>  
+  </div>
+
+  <div class="form-group" ng-if="playing">
+    <h1>Playing</h1>
+    <br/>
+    <div class="input-group mb-2">
+    <button ng-click="reset_game()" type="button" class="btn btn-secondary">
+        New Game
     </button>
-    <br/>
-    <h1>Play</h1>
-    <br/>
-
-    <button ng-click="calculate_next_generation()" type="button">
+    <button ng-click="calculate_next_generation()" type="button" class="btn btn-info">
       Next generation
-  </button>
-  {{grid}}
-  <table class="table" >
-      <tr ng-repeat="row in grid">
-        <td ng-repeat="col in row[$index]">{{col}}</td>
-      </tr>
+    </button>
+  </div>
+  <table cellspacing="0" >
+    <tr ng-repeat="row in grid">
+    <td ng-repeat="col in row track by $index"><div class="animated flipInY cell cell{{col}}"></div></td>
+    </tr>
   </table>
- 
-
+    
+  </div>
 </div>
+
 
