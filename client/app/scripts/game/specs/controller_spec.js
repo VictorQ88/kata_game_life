@@ -62,10 +62,7 @@ describe('Controller: Game', function () {
       expect(scope.grid).toEqual(next_next_generation);
     });
 
-    iit('Should test auto play', function() {     
-      _(scope.grid).each(function (item) {
-        console.log('item :', item);
-      }) ;
+    it('Should test auto play', function() {     
      expect(scope.calculate_next_generation).toHaveBeenCalled();
     });
   });
